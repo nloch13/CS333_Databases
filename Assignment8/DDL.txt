@@ -1,0 +1,103 @@
+
+
+DROP TABLE IF EXISTS Travel_to;
+DROP TABLE IF EXISTS Team_Roster;
+DROP TABLE IF EXISTS Coach;
+DROP TABLE IF EXISTS Teams;
+DROP TABLE IF EXISTS Sport;
+DROP TABLE IF EXISTS Practice_Time;
+DROP TABLE IF EXISTS Location;
+DROP TABLE IF EXISTS Parent_;
+DROP TABLE IF EXISTS Players;
+
+
+CREATE TABLE Players
+(
+  Player_ID INT NOT NULL,
+  PlayerAge INT NOT NULL,
+  PlayerName VARCHAR(30) NOT NULL,
+  Gender VARCHAR(10) NOT NULL,
+  PRIMARY KEY (Player_ID)
+);
+
+CREATE TABLE Parent_
+(
+  Child INT NOT NULL,
+  ParentName VARCHAR(30) NOT NULL,
+  Phone_Number_ VARCHAR(20) NOT NULL,
+  PRIMARY KEY (Child)
+);
+
+CREATE TABLE Location
+(
+  Building_NUM INT NOT NULL,
+  Field_or_Court_NUM INT NOT NULL,
+  Address_ VARCHAR(30) NOT NULL,
+  Child INT NOT NULL,
+  PRIMARY KEY (Building_NUM),
+  FOREIGN KEY (Child) REFERENCES Parent_(Child)
+);
+
+CREATE TABLE Practice_Time
+(
+  Days_of_the_week_ INT NOT NULL,
+  Capacity_ INT NOT NULL,
+  Time_of_day VARCHAR(30) NOT NULL,
+  Building_NUM INT NOT NULL,
+  PRIMARY KEY (Days_of_the_week_),
+  FOREIGN KEY (Building_NUM) REFERENCES Location(Building_NUM)
+);
+
+CREATE TABLE Sport
+(
+  Player_ID INT NOT NULL,
+  SportName VARCHAR(30) NOT NULL,
+  Price INT NOT NULL,
+  Season_Length INT NOT NULL,
+  PRIMARY KEY (Player_ID),
+  FOREIGN KEY (Player_ID) REFERENCES Players(Player_ID),
+  UNIQUE (SportName)
+);
+
+CREATE TABLE Teams
+(
+  Team_ID INT NOT NULL,
+  Age_Group INT NOT NULL,
+  Level VARCHAR(30) NOT NULL,
+  TeamName VARCHAR(30),
+  Player_ID INT NOT NULL,
+  Days_of_the_week_ INT NOT NULL,
+  PRIMARY KEY (Team_ID),
+  FOREIGN KEY (Player_ID) REFERENCES Players(Player_ID),
+  FOREIGN KEY (Days_of_the_week_) REFERENCES Practice_Time(Days_of_the_week_)
+);
+
+CREATE TABLE Coach
+(
+  Qualifications_ VARCHAR(40) NOT NULL,
+  Availability_ VARCHAR(30) NOT NULL,
+  CoachName VARCHAR(30) NOT NULL,
+  Team_ID INT NOT NULL,
+  Player_ID INT NOT NULL,
+  PRIMARY KEY (CoachName),
+  FOREIGN KEY (Team_ID) REFERENCES Teams(Team_ID),
+  FOREIGN KEY (Player_ID) REFERENCES Players(Player_ID)
+);
+
+CREATE TABLE Team_Roster
+(
+  Team_ID INT NOT NULL,
+  Player_ID INT NOT NULL,
+  PRIMARY KEY (Team_ID, Player_ID),
+  FOREIGN KEY (Team_ID) REFERENCES Teams(Team_ID),
+  FOREIGN KEY (Player_ID) REFERENCES Players(Player_ID)
+);
+
+CREATE TABLE Travel_to
+(
+  Team_ID INT NOT NULL,
+  Building_NUM INT NOT NULL,
+  PRIMARY KEY (Team_ID, Building_NUM),
+  FOREIGN KEY (Team_ID) REFERENCES Teams(Team_ID),
+  FOREIGN KEY (Building_NUM) REFERENCES Location(Building_NUM)
+);
