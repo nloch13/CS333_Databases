@@ -1,0 +1,49 @@
+
+INSERT INTO Record_RD (Place, RoundDifferential) VALUES 
+(1, '62-38'),
+(2, '50-50'),
+(3, '80-20'),
+(4, '45-55'),
+(5, '70-30'),
+(6, '55-45'),
+(7, '90-10'),
+(8, '40-60'),
+(9, '75-25'),
+(10, '48-52');
+
+INSERT INTO Map (MapName, MapBanPersent) VALUES
+('ClubHouse', 25),
+('Border', 20),
+('Villa', 15),
+('Consulate', 30),
+('Coastline', 18),
+('Oregon', 22),
+('Kafe Dostoyevsky', 25),
+('Theme Park', 12),
+('Skyscraper', 28),
+('Bank', 21),
+('Chalet', 26);
+
+INSERT INTO League (LeagueName, Numofteams, PrizePool, Season) VALUES
+('NACE', 34, 10000, 'Fall'),
+('ColligateR6', 124, 7500, 'Spring'),
+('Six Invitational', 20, 2000000, 'Winter'),
+('NECC', 50, 2000, 'Summer');
+
+INSERT INTO Gamer (IGN, Grade, PlayerName, Rank, KDA) VALUES 
+('LochNess.BTLR', 'Junior', 'Nate', 'D2', '1.22'),
+('RyKai.BTLR', 'Senior', 'Ryan', 'D1', '1.13'),
+('Jonsey.BTLR', 'Sophmore', 'James', 'D1', '1.21'),
+('Maddog.BTLR', 'Freshman', 'Maddox', 'Champ', '1.12'),
+('Chipy.BTLR', 'Junior', 'Chris', 'D3', '1.02'),
+('Artic.BTLR', 'Senior', 'Noah', 'P1', '1.06');
+
+INSERT INTO VideoGame (GameName, System, ReleaseYear, IGN) VALUES
+('Rainbow Six Siege', 'PC', 2015, 'LochNess.BTLR'),
+('Call of Duty', 'Xbox', 2020, 'Artic.BTLR'),
+('Valorant', 'PC', 2020, 'Chipy.BTLR');
+
+INSERT INTO EsportTeam (TeamName, TeamRecord, TeamAcronym, GameName, Place, LeagueName) VALUES
+('Butler R6 (NACE)', '6-1', 'BTLR', 'Rainbow Six Siege', 2, 'NACE'),
+('Butler R6 (Cr6)', '7-1', 'BTLR', 'Rainbow Six Siege', 1, 'ColligateR6'),
+('Butler R6 (NECC)', '10-1', 'BTLR', 'Call of Duty', 3, 'NECC');
