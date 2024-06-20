@@ -1,0 +1,19 @@
+INSERT INTO Season_ (Season_NUM, Season_Name) VALUES
+(1, 'Winter'),
+(2, 'Spring'),
+(3, 'Summer'),
+(4, 'Autumn');
+
+INSERT INTO Drinks (Drink_NUM, Drink_Name, Drink_Temp, Season_NUM) VALUES
+(10, 'Lemonade', 'Cold', 3),
+(20, 'Peppermint Hot Choc', 'Hot', 1),
+(30, 'Pumpkin Spice Latte', 'Cold', 4),
+(40, 'Boba Tea', 'Cold', 2),
+(50, 'Apple Cider', 'Either', 4);
+
+INSERT INTO Food (Dish_NUM, Dish_Name, Meal_Group_, Season_NUM) VALUES
+(101, 'Cheese Burger', 'Dinner', 3),
+(202, 'Holiday Roast', 'Dinner', 1),
+(303, 'Apple Fritter', 'Breakfast', 4),
+(404, 'Garden Salad', 'Lunch', 2),
+(505, 'Pumpkin Pie', 'Dessert', 4);
