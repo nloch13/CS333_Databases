@@ -1,5 +1,0 @@
-[client]
-user=nloch
-password=vfYvq6y8fFqoJrZ0
-database=nloch
-host=trevor.butler.edu
