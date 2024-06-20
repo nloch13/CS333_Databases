@@ -1,0 +1,26 @@
+CREATE TABLE Season_
+(
+  Season_NUM INT NOT NULL,
+  Season_Name VARCHAR(10) NOT NULL,
+  PRIMARY KEY (Season_NUM)
+);
+
+CREATE TABLE Drinks
+(
+  Drink_NUM INT NOT NULL,
+  Drink_Name VARCHAR(30) NOT NULL,
+  Drink_Temp VARCHAR(30) NOT NULL,
+  Season_NUM INT NOT NULL,
+  PRIMARY KEY (Drink_NUM),
+  FOREIGN KEY (Season_NUM) REFERENCES Season_(Season_NUM)
+);
+
+CREATE TABLE Food
+(
+  Dish_NUM INT NOT NULL,
+  Dish_Name VARCHAR(30) NOT NULL,
+  Meal_Group_ VARCHAR(30) NOT NULL,
+  Season_NUM INT NOT NULL,
+  PRIMARY KEY (Dish_NUM),
+  FOREIGN KEY (Season_NUM) REFERENCES Season_(Season_NUM)
+);
